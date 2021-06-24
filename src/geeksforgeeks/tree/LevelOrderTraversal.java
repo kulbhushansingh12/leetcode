@@ -22,7 +22,7 @@ public class LevelOrderTraversal {
          if (element == null) {
             if (!queue.isEmpty()) {
                queue.add(null);
-               result.add(levelList);
+                  result.add(levelList);
                levelList = new ArrayList<>();
                System.out.println();
             } else if(levelList.size()!= 0){

@@ -9,6 +9,7 @@ import java.util.Stack;
 
 //https://leetcode.com/problems/next-greater-element-i/
 public class NextGreaterElement {
+   static String str;
    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
       Map<Integer, Integer> nextHigherNum = new HashMap<>();
       Stack<Integer> stack = new Stack<>();
@@ -26,8 +27,15 @@ public class NextGreaterElement {
       return nums1;
    }
 
+   public NextGreaterElement() {
+      System.out.println("dffdfd");
+      str = "abv";
+   }
    public static void main(String[] args) {
       NextGreaterElement nextGreaterElement = new NextGreaterElement();
+      System.out.println(str);
       System.out.println(Arrays.toString(nextGreaterElement.nextGreaterElement(new int[] {4,1,2}, new int[] {1,3,4,2})));
    }
+
+
 }

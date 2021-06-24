@@ -1,5 +1,10 @@
 package leetcode;
 
+import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.TimeZone;
+
 //https://leetcode.com/problems/search-in-rotated-sorted-array/
 public class SearchInRotatedSortedArray {
    public int search(int[] nums, int target) {
@@ -10,11 +15,11 @@ public class SearchInRotatedSortedArray {
          int mid = ((low + high) / 2);
          if (nums[mid] == target)
             return mid;
-         else if (target >= nums[low] ) {
+         else if (target >= nums[low]) {
             if (target < nums[mid])
                high = mid - 1;
-            else if (target > nums[high] )
-               high = mid  -1;
+            else if (target > nums[high])
+               high = mid - 1;
          } else
             low = mid + 1;
       }

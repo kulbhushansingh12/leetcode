@@ -1,4 +1,6 @@
-package geeksforgeeks.linkedlist;
+package geeksforgeeks.linkedlist.recursion;
+
+import geeksforgeeks.linkedlist.ListNode;
 
 //https://leetcode.com/problems/swap-nodes-in-pairs/
 public class SwapPairNodes {
@@ -47,9 +49,35 @@ public class SwapPairNodes {
       ListNode head = new ListNode(1);
       ListNode n1 = new ListNode(2);
       ListNode n2 = new ListNode(3);
+      //ListNode n3 = new ListNode(4);
       //ListNode n5 = new ListNode(6);
       head.next = n1;
       n1.next = n2;
-      ListNode.PrintLL(spn.swapPairs(head));
+      //n2.next = n3;
+      ListNode.PrintLL(spn.swapPairsRecursively(head));
+   }
+
+   public ListNode swapPairsRecursively(ListNode head) {
+      if (head == null || head.next == null) {
+         return head;
+      }
+      ListNode swappedHead = swapNode1(head);
+
+      ListNode node = swapPairsRecursively(swappedHead.next.next);
+
+      swappedHead.next.next = node;
+
+      return swappedHead;
+   }
+
+   public ListNode swapNode1(ListNode head) {
+      if (head.next == null)
+         return head;
+      ListNode pairNext = head.next.next;
+      ListNode next = head.next;
+      head.next = null;
+      next.next = head;
+      head.next = pairNext;
+      return next;
    }
 }
